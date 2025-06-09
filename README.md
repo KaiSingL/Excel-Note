@@ -87,3 +87,21 @@ In this example:
 - `B1` is the end date.
 - `C1:C5` is an optional range containing holiday dates to exclude.
 - The result is the count of working days between `A1` and `B1`, excluding weekends and any holidays listed in `C1:C5`.
+
+## SUMPRODUCT for Conditional Counting or Summing
+
+The `SUMPRODUCT` function multiplies corresponding components in given arrays and returns the sum of those products. It's often used for conditional counting or summing without needing array formulas.
+
+### Example
+
+```excel
+=SUMPRODUCT((INT(Holidays[Date])>=A2)*(INT(Holidays[Date])<=EOMONTH(A2,0))*(WEEKDAY(INT(Holidays[Date]))=7))
+```
+
+In this example:
+
+- `Holidays[Date]` refers to a column of dates in a table named `Holidays`.
+- `A2` is the start date (typically the first day of a month).
+- `EOMONTH(A2,0)` returns the last day of the month for the date in `A2`.
+- `WEEKDAY(...)=7` checks if the date is a Saturday (if your system's week starts on Sunday).
+- The formula counts how many Saturdays in the `Holidays[Date]` column fall within the month specified by `A2`.
