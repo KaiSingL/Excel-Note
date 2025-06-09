@@ -70,3 +70,20 @@ In this example:
 - If `A1` contains `John` and `B1` contains `Doe`, the formula combines them with a hyphen and space.
 - The result is `John - Doe`.
 - This can be copied down a column to join values for each row.
+
+## NETWORKDAYS to Count Working Days Between Dates
+
+The `NETWORKDAYS` function calculates the number of working days (excluding weekends and optionally specified holidays) between two dates. This is useful for project planning, payroll, or any scenario where you need to count business days.
+
+### Example
+
+```excel
+=NETWORKDAYS(A1, B1, C1:C5)
+```
+
+In this example:
+
+- `A1` is the start date.
+- `B1` is the end date.
+- `C1:C5` is an optional range containing holiday dates to exclude.
+- The result is the count of working days between `A1` and `B1`, excluding weekends and any holidays listed in `C1:C5`.
